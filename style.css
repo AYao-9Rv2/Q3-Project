@@ -1,3 +1,11 @@
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
 body{
 	font-family: "Outfit", sans-serif;
 	text-align: center;
