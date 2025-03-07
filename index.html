@@ -82,7 +82,21 @@
     <!-- Ticket: Yao, EVangelista -->
     <div id="ticket" class="container tab-pane fade text-center">
       <h1><b>Ticket Center</b></h1>
-      <p>Contents here</p>
+        <h3>Ticket Price</h3>
+        <label>Seat Type:
+            <select id="seat" class="form-control">
+                <option>Patron</option>
+                <option>Balcony</option>
+                <option>VIP</option>
+            </select>
+        </label>
+        <label>Discount:
+            <select id="option" class="form-control">
+                <option>Regular</option>
+                <option>Student Discount</option>
+            </select>
+        </label>
+        <button class="custom-btn" onclick="checkPrice()">Get Price</button>
     </div>
 
     <!-- Train Schedule: Ong -->
