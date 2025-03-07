@@ -1,5 +1,5 @@
       function checkPrice() {
-            let seat = document.getElementById('seat').value;
+            let seat = document.getElementById('From').value;
             let option = document.getElementById('option').value;
             let price = 0;
 
