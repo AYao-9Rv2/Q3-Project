@@ -80,24 +80,37 @@
 
 
     <!-- Ticket: Yao, EVangelista -->
-    <div id="ticket" class="container tab-pane fade text-center">
-      <h1><b>Ticket Center</b></h1>
-        <h3>Ticket Price</h3>
-        <label>Seat Type:
-            <select id="seat" class="form-control">
-                <option>Patron</option>
-                <option>Balcony</option>
-                <option>VIP</option>
-            </select>
-        </label>
-        <label>Discount:
-            <select id="option" class="form-control">
-                <option>Regular</option>
-                <option>Student Discount</option>
-            </select>
-        </label>
-        <button class="custom-btn" onclick="checkPrice()">Get Price</button>
+     <div id="ticket" class="container tab-pane fade text-center">
+        <h1><b>Ticket Center</b></h1>
+        <div id="ticket-price" class="form-container">
+            <h3>Ticket Price</h3>
+            <label>From: 
+                <select id="seat" class="form-control">
+                    <option>Patron</option>
+                    <option>Balcony</option>
+                    <option>VIP</option>
+                </select>
+            </label>
+    
+            <label>To:
+                <select id="seat" class="form-control">
+                    <option>Patron</option>
+                    <option>Balcony</option>
+                    <option>VIP</option>
+                </select>
+            </label>
+    
+            <label>Discount:
+                <select id="option" class="form-control">
+                    <option>Regular</option>
+                    <option>Student Discount</option>
+                </select>
+            </label>
+    
+            <button class="custom-btn" onclick="checkPrice()">Get Price</button>
+        </div>
     </div>
+
 
     <!-- Train Schedule: Ong -->
     <div id="sched" class="container tab-pane fade"><br>
