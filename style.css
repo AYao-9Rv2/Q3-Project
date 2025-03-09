@@ -6,6 +6,12 @@
 	color: white !important;
 }
 
+.carousel img {
+	width: 100%; 
+	height: 400px;
+	object-fit: cover;
+  }
+
 body{
 	font-family: "Outfit", sans-serif;
 	text-align: center;
