@@ -12,7 +12,6 @@
 
 <body>
   <!-- NAV BAR: EVANGELISTA -->
-  <!-- Navigation Bar: Evangelista -->
   <nav class="navbar navbar-expand-sm navbar-light bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand text-light" href="#">Train Station Name</a>
@@ -67,56 +66,8 @@
         </button>
       </div>
     </div>
-    
-    <!-- TICKET CENTER: EVANGELISTA, YAO -->
-    <div id="ticket" class="container tab-pane fade text-center">
-      <h1><b>Ticket Center</b></h1>
-      <div class="form-container">
-        <label><b>From:</b></label>
-        <select id="fromStation" onchange="DisplayPrice()">
-          <option value="">Select Station</option>
-          <option value="1">North Ave.</option>
-          <option value="2">Quezon Ave.</option>
-          <option value="13">Taft Ave.</option>
-        </select>
-        <label><b>To:</b></label>
-        <select id="toStation" onchange="DisplayPrice()">
-          <option value="">Select Station</option>
-          <option value="1">North Ave.</option>
-          <option value="2">Quezon Ave.</option>
-          <option value="13">Taft Ave.</option>
-        </select>
-        <label><b>Discount:</b></label>
-        <select id="discountType" onchange="DisplayPrice()">
-          <option value="none" selected>None</option>
-          <option value="student">Student (20% Off)</option>
-          <option value="senior">Senior (20% Off)</option>
-        </select>
-        <h2>Total:</h2>
-        <input type="text" id="valueTotal" value="P0.00" readonly>
-      </div>
-    </div>
 
-    <script>
-      function DisplayPrice() {
-        let from = parseInt(document.getElementById("fromStation").value) || 0;
-        let to = parseInt(document.getElementById("toStation").value) || 0;
-        let discount = document.getElementById("discountType").value;
-        
-        if (!from || !to) {
-          document.getElementById("valueTotal").value = "P0.00";
-          return;
-        }
-        
-        let distance = Math.abs(from - to);
-        let price = distance <= 2 ? 13.00 : distance <= 4 ? 16.00 : distance <= 7 ? 20.00 : distance <= 10 ? 24.00 : 28.00;
-        if (discount !== "none") price *= 0.8;
-        
-        document.getElementById("valueTotal").value = `P${price.toFixed(2)}`;
-      }
-    </script>
 
-  
     <!-- TRAIN SCHED: ONG, YAO -->
     <div id="sched" class="container tab-pane fade"><br>
       <h1 class="text-center"><b>Train Schedule</b></h1>
@@ -175,6 +126,56 @@
         </table>
       </div>
     </div> 
+
+    
+    <!-- TICKET CENTER: EVANGELISTA, YAO -->
+    <div id="ticket" class="container tab-pane fade text-center">
+      <h1><b>Ticket Center</b></h1>
+      <div class="form-container">
+        <label><b>From:</b></label>
+        <select id="fromStation" onchange="DisplayPrice()">
+          <option value="">Select Station</option>
+          <option value="1">North Ave.</option>
+          <option value="2">Quezon Ave.</option>
+          <option value="13">Taft Ave.</option>
+        </select>
+        <label><b>To:</b></label>
+        <select id="toStation" onchange="DisplayPrice()">
+          <option value="">Select Station</option>
+          <option value="1">North Ave.</option>
+          <option value="2">Quezon Ave.</option>
+          <option value="13">Taft Ave.</option>
+        </select>
+        <label><b>Discount:</b></label>
+        <select id="discountType" onchange="DisplayPrice()">
+          <option value="none" selected>None</option>
+          <option value="student">Student (20% Off)</option>
+          <option value="senior">Senior (20% Off)</option>
+        </select>
+        <h2>Total:</h2>
+        <input type="text" id="valueTotal" value="P0.00" readonly>
+      </div>
+    </div>
+
+    <script>
+      function DisplayPrice() {
+        let from = parseInt(document.getElementById("fromStation").value) || 0;
+        let to = parseInt(document.getElementById("toStation").value) || 0;
+        let discount = document.getElementById("discountType").value;
+        
+        if (!from || !to) {
+          document.getElementById("valueTotal").value = "P0.00";
+          return;
+        }
+        
+        let distance = Math.abs(from - to);
+        let price = distance <= 2 ? 13.00 : distance <= 4 ? 16.00 : distance <= 7 ? 20.00 : distance <= 10 ? 24.00 : 28.00;
+        if (discount !== "none") price *= 0.8;
+        
+        document.getElementById("valueTotal").value = `P${price.toFixed(2)}`;
+      }
+    </script>
+
 
     <!-- HELP: YAO -->
     <div id="help" class="container tab-pane fade">
