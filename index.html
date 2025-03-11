@@ -12,22 +12,22 @@
 
 <body>
   <!-- NAV BAR: EVANGELISTA -->
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand text-light" href="#">Train Station Name</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto nav nav-tabs" role="tablist">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#ticket">Ticket Purchasing</a></li>
           <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#sched">Train Schedule</a></li>
           <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#help">Help</a></li>
         </ul>
-        <form class="d-flex">
+        <form class="d-flex ms-auto">
           <input class="form-control me-2" type="text" placeholder="Search" required>
-          <button class="btn btn-light" type="button">Search</button>
+          <button class="btn btn-light" type="submit">Search</button>
         </form>
       </div>
     </div>
@@ -35,20 +35,19 @@
 
   <!-- CONTENT -->
   <div class="tab-content mt-3">
-    
     <!-- HOME: YAO -->
-    <div id="home" class="container tab-pane active text-center"><br>
+    <div id="home" class="container tab-pane active text-center">
       <h1><b>Fare Guide</b></h1>
       <div id="demo" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://mapa-metro.com/images/metro-manila.jpg" alt="train1" class="d-block" style="width:250px">
+            <img src="https://mapa-metro.com/images/metro-manila.jpg" alt="train1" class="img-fluid">
           </div>
           <div class="carousel-item">
-            <img src="https://mrt3.com/images/MRT_LRT.jpg" alt="train2" class="d-block" style="width:250px">
+            <img src="https://mrt3.com/images/MRT_LRT.jpg" alt="train2" class="img-fluid">
           </div>
           <div class="carousel-item">
-            <img src="https://i.redd.it/r87sn9c92p921.jpg" alt="train3" class="d-block" style="width:250px">
+            <img src="https://i.redd.it/r87sn9c92p921.jpg" alt="train3" class="img-fluid">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
@@ -59,148 +58,73 @@
         </button>
       </div>
     </div>
-
+    
     <!-- TICKET CENTER: EVANGELISTA, YAO -->
     <div id="ticket" class="container tab-pane fade text-center">
-    <h1><b>Ticket Center</b></h1>
-    <div class="form-container">
-        <div class="selection-container">
-            <p><b>From: </b></p>
-            <select id="fromStation" onchange="DisplayPrice()">
-                <option value="" selected>Select Station</option>
-                <option value="1">North Ave.</option>
-                <option value="2">Quezon Ave.</option>
-                <option value="3">GMA Kamuning</option>
-                <option value="4">Araneta Cubao</option>
-                <option value="5">Santolan Annapolis</option>
-                <option value="6">Ortigas</option>
-                <option value="7">Shaw Blvd.</option>
-                <option value="8">Boni</option>
-                <option value="9">Guadalupe</option>
-                <option value="10">Buendia</option>
-                <option value="11">Ayala</option>
-                <option value="12">Magallanes</option>
-                <option value="13">Taft Ave.</option>
-            </select>
-        </div>
-
-        <div class="selection-container">
-            <p><b>Going To: </b></p>
-            <select id="toStation" onchange="DisplayPrice()">
-                <option value="" selected>Select Station</option>
-                <option value="1">North Ave.</option>
-                <option value="2">Quezon Ave.</option>
-                <option value="3">GMA Kamuning</option>
-                <option value="4">Araneta Cubao</option>
-                <option value="5">Santolan Annapolis</option>
-                <option value="6">Ortigas</option>
-                <option value="7">Shaw Blvd.</option>
-                <option value="8">Boni</option>
-                <option value="9">Guadalupe</option>
-                <option value="10">Buendia</option>
-                <option value="11">Ayala</option>
-                <option value="12">Magallanes</option>
-                <option value="13">Taft Ave.</option>
-            </select>
-        </div>
-
-        <div class="selection-container">
-            <p><b>Discount: </b></p>
-            <select id="discountType" onchange="DisplayPrice()">
-                <option value="none" selected>None</option>
-                <option value="student">Student (20% Off)</option>
-                <option value="senior">Senior (20% Off)</option>
-            </select>
-        </div>
-
-        <div class="total-container">
-            <h2>Total:</h2>
-            <input type="text" id="valueTotal" value="P0.00" readonly>
-        </div>
-    </div>
-</div>
-
-<script>
-    function DisplayPrice() {
-        var fromVal = document.getElementById("fromStation").value;
-        var toVal = document.getElementById("toStation").value;
-        var discountType = document.getElementById("discountType").value;
-
-        if (fromVal === "" || toVal === "") {
-            document.getElementById('valueTotal').value = "P0.00";
-            return;
-        }
-
-        var difference = Math.abs(parseInt(fromVal) - parseInt(toVal));
-
-        var price = 0;
-        if (difference === 0) price = 0;
-        else if (difference <= 2) price = 13.00;
-        else if (difference <= 4) price = 16.00;
-        else if (difference <= 7) price = 20.00;
-        else if (difference <= 10) price = 24.00;
-        else if (difference <= 13) price = 28.00;
-
-        // discount (20% for students and seniors)
-        if (discountType === "student" || discountType === "senior") {
-            price = price * 0.8;
-        }
-
-        document.getElementById('valueTotal').value = "P" + price.toFixed(2);
-    }
-</script>
-
-    
-    <!-- TRAIN SCHED: ONG, YAO -->
-    <div id="sched" class="container tab-pane fade"><br>
-      <h1 class="text-center"><b>Train Schedule</b></h1>
-      <div class="container">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>Operating Hours</th>
-              <th>Opening Hours Taft</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Monday</td><td>4:59am - 9:10pm</td><td>5:50am - 10:10pm</td></tr>
-            <tr><td>Tuesday</td><td>4:59am - 9:10pm</td><td>5:50am - 10:10pm</td></tr>
-            <tr><td>Wednesday</td><td>4:59am - 9:10pm</td><td>5:50am - 10:10pm</td></tr>
-            <tr><td>Thursday</td><td>4:59am - 9:10pm</td><td>5:50am - 10:10pm</td></tr>
-            <tr><td>Friday</td><td>4:59am - 9:10pm</td><td>5:50am - 10:10pm</td></tr>
-            <tr><td>Saturday</td><td>4:59am - 9:10pm</td><td>5:50am - 10:10pm</td></tr>
-            <tr><td>Sunday</td><td>4:59am - 9:10pm</td><td>5:50am - 10:10pm</td></tr>
-          </tbody>
-        </table>
+      <h1><b>Ticket Center</b></h1>
+      <div class="form-container">
+        <label><b>From:</b></label>
+        <select id="fromStation" onchange="DisplayPrice()">
+          <option value="">Select Station</option>
+          <option value="1">North Ave.</option>
+          <option value="2">Quezon Ave.</option>
+          <option value="13">Taft Ave.</option>
+        </select>
+        <label><b>To:</b></label>
+        <select id="toStation" onchange="DisplayPrice()">
+          <option value="">Select Station</option>
+          <option value="1">North Ave.</option>
+          <option value="2">Quezon Ave.</option>
+          <option value="13">Taft Ave.</option>
+        </select>
+        <label><b>Discount:</b></label>
+        <select id="discountType" onchange="DisplayPrice()">
+          <option value="none" selected>None</option>
+          <option value="student">Student (20% Off)</option>
+          <option value="senior">Senior (20% Off)</option>
+        </select>
+        <h2>Total:</h2>
+        <input type="text" id="valueTotal" value="P0.00" readonly>
       </div>
     </div>
 
+    <script>
+      function DisplayPrice() {
+        let from = parseInt(document.getElementById("fromStation").value) || 0;
+        let to = parseInt(document.getElementById("toStation").value) || 0;
+        let discount = document.getElementById("discountType").value;
+        
+        if (!from || !to) {
+          document.getElementById("valueTotal").value = "P0.00";
+          return;
+        }
+        
+        let distance = Math.abs(from - to);
+        let price = distance <= 2 ? 13.00 : distance <= 4 ? 16.00 : distance <= 7 ? 20.00 : distance <= 10 ? 24.00 : 28.00;
+        if (discount !== "none") price *= 0.8;
+        
+        document.getElementById("valueTotal").value = `P${price.toFixed(2)}`;
+      }
+    </script>
+
     <!-- HELP: YAO -->
-    <div id="help" class="container tab-pane fade"><br>
+    <div id="help" class="container tab-pane fade">
       <h1 class="text-center"><b>Leave a Comment</b></h1>
-      <form id="registration-form">
-        <div class="mb-3">
-          <label for="inputName" class="form-label">Name:</label>
-          <input type="text" class="form-control" id="inputName" name="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="feedback" class="form-label">Feedback:</label>
-          <textarea class="form-control" rows="5" id="feedback" name="feedback" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark">Submit Feedback</button>
+      <form id="registration-form" action="#" method="post">
+        <label for="inputName">Name:</label>
+        <input type="text" id="inputName" class="form-control" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" required>
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" class="form-control" rows="5" required></textarea>
+        <button type="submit" class="btn btn-dark mt-3">Submit Feedback</button>
       </form>
     </div>
-  </div> 
+  </div>
 
-  <!-- FOOTER: YAO -->
-  <footer>
+  <footer class="text-center mt-4">
     <hr>
-    <p><a style="text-decoration: none; color: #5e5a63" href="#">&#169; 2025 | ICT 9 Ruby | Project | Evangelista, Ong, Yao</a></p>
+    <p>&#169; 2025 | ICT 9 Ruby | Project | Evangelista, Ong, Yao</p>
   </footer>
 </body>
 </html>
