@@ -44,7 +44,7 @@
   <!-- CONTENT -->
   <div class="tab-content mt-3">
     
-    <!-- Home: Yao, Ong -->
+    <!-- Home: Yao -->
     <div id="home" class="container tab-pane active text-center"><br>
       <h1><b>Fare Guide</b></h1>
       
@@ -82,25 +82,94 @@
 
     <!-- Ticket: Yao, EVangelista -->
      <div id="ticket" class="container tab-pane fade text-center">
-        <h1><b>Ticket Center</b></h1>
-        <div id="ticket-price" class="form-container">
-            <h3>Ticket Price</h3>
-            <label>From: 
-                <select id="From" class="form-control">
-                    <option>Patron</option>
-                    <option>Balcony</option>
-                    <option>VIP</option>
-                </select>
-            </label>
-    
-            <label>Discount:
-                <select id="option" class="form-control">
-                    <option>Regular</option>
-                    <option>Student Discount</option>
-                </select>
-            </label>
-    
-            <button class="custom-btn" onclick="checkPrice()">Get Price</button>
+     <h1><b>Ticket Center</b></h1>
+
+    <div class="form-container">
+        <div class="selection-container">
+            <p><b>From: </b></p>
+            <select id="fromStation" onchange="DisplayPrice()">
+                <option value="" selected>Select Station</option>
+                <option value="1">North Ave.</option>
+                <option value="2">Quezon Ave.</option>
+                <option value="3">GMA Kamuning</option>
+                <option value="4">Araneta Cubao</option>
+                <option value="5">Santolan Annapolis</option>
+                <option value="6">Ortigas</option>
+                <option value="7">Shaw Blvd.</option>
+                <option value="8">Boni</option>
+                <option value="9">Guadalupe</option>
+                <option value="10">Buendia</option>
+                <option value="11">Ayala</option>
+                <option value="12">Magallanes</option>
+                <option value="13">Taft Ave.</option>
+            </select>
+        </div>
+
+        <div class="selection-container">
+            <p><b>Going To: </b></p>
+            <select id="toStation" onchange="DisplayPrice()">
+                <option value="" selected>Select Station</option>
+                <option value="1">North Ave.</option>
+                <option value="2">Quezon Ave.</option>
+                <option value="3">GMA Kamuning</option>
+                <option value="4">Araneta Cubao</option>
+                <option value="5">Santolan Annapolis</option>
+                <option value="6">Ortigas</option>
+                <option value="7">Shaw Blvd.</option>
+                <option value="8">Boni</option>
+                <option value="9">Guadalupe</option>
+                <option value="10">Buendia</option>
+                <option value="11">Ayala</option>
+                <option value="12">Magallanes</option>
+                <option value="13">Taft Ave.</option>
+            </select>
+        </div>
+
+        <div class="selection-container">
+            <p><b>Discount: </b></p>
+            <select id="discountType" onchange="DisplayPrice()">
+                <option value="none" selected>None</option>
+                <option value="student">Student (20% Off)</option>
+                <option value="senior">Senior (20% Off)</option>
+            </select>
+        </div>
+
+        <div class="total-container">
+            <h2>Total:</h2>
+            <input type="text" id="valueTotal" value="P0.00" readonly>
+        </div>
+    </div>
+</div>
+
+<script>
+    function DisplayPrice() {
+        var fromVal = document.getElementById("fromStation").value;
+        var toVal = document.getElementById("toStation").value;
+        var discountType = document.getElementById("discountType").value;
+
+        if (fromVal === "" || toVal === "") {
+            document.getElementById('valueTotal').value = "P0.00";
+            return;
+        }
+
+        var difference = Math.abs(parseInt(fromVal) - parseInt(toVal));
+
+        var price = 0;
+        if (difference === 0) price = 0;
+        else if (difference <= 2) price = 13.00;
+        else if (difference <= 4) price = 16.00;
+        else if (difference <= 7) price = 20.00;
+        else if (difference <= 10) price = 24.00;
+        else if (difference <= 13) price = 28.00;
+
+        // discount (20% for students and seniors)
+        if (discountType === "student" || discountType === "senior") {
+            price = price * 0.8;
+        }
+
+        document.getElementById('valueTotal').value = "P" + price.toFixed(2);
+    }
+</script>
         </div>
     </div>
 
