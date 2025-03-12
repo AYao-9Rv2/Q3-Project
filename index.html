@@ -129,33 +129,65 @@
 
     
     <!-- TICKET CENTER: EVANGELISTA, YAO -->
-    <div id="ticket" class="container tab-pane fade text-center">
-      <h1><b>Ticket Center</b></h1>
-      <div class="form-container">
-        <label><b>From:</b></label>
-        <select id="fromStation" onchange="DisplayPrice()">
-          <option value="">Select Station</option>
-          <option value="1">North Ave.</option>
-          <option value="2">Quezon Ave.</option>
-          <option value="13">Taft Ave.</option>
-        </select>
-        <label><b>To:</b></label>
-        <select id="toStation" onchange="DisplayPrice()">
-          <option value="">Select Station</option>
-          <option value="1">North Ave.</option>
-          <option value="2">Quezon Ave.</option>
-          <option value="13">Taft Ave.</option>
-        </select>
-        <label><b>Discount:</b></label>
-        <select id="discountType" onchange="DisplayPrice()">
-          <option value="none" selected>None</option>
-          <option value="student">Student (20% Off)</option>
-          <option value="senior">Senior (20% Off)</option>
-        </select>
-        <h2>Total:</h2>
-        <input type="text" id="valueTotal" value="P0.00" readonly>
-      </div>
+    <!-- Ticket: Yao, Evangelista -->
+<div id="ticket" class="container tab-pane fade text-center">
+    <h1><b>Ticket Center</b></h1>
+    <div class="form-container">
+        <div class="selection-container">
+            <p><b>From: </b></p>
+            <select id="fromStation" onchange="DisplayPrice()">
+                <option value="" selected>Select Station</option>
+                <option value="1">North Ave.</option>
+                <option value="2">Quezon Ave.</option>
+                <option value="3">GMA Kamuning</option>
+                <option value="4">Araneta Cubao</option>
+                <option value="5">Santolan Annapolis</option>
+                <option value="6">Ortigas</option>
+                <option value="7">Shaw Blvd.</option>
+                <option value="8">Boni</option>
+                <option value="9">Guadalupe</option>
+                <option value="10">Buendia</option>
+                <option value="11">Ayala</option>
+                <option value="12">Magallanes</option>
+                <option value="13">Taft Ave.</option>
+            </select>
+        </div>
+
+        <div class="selection-container">
+            <p><b>Going To: </b></p>
+            <select id="toStation" onchange="DisplayPrice()">
+                <option value="" selected>Select Station</option>
+                <option value="1">North Ave.</option>
+                <option value="2">Quezon Ave.</option>
+                <option value="3">GMA Kamuning</option>
+                <option value="4">Araneta Cubao</option>
+                <option value="5">Santolan Annapolis</option>
+                <option value="6">Ortigas</option>
+                <option value="7">Shaw Blvd.</option>
+                <option value="8">Boni</option>
+                <option value="9">Guadalupe</option>
+                <option value="10">Buendia</option>
+                <option value="11">Ayala</option>
+                <option value="12">Magallanes</option>
+                <option value="13">Taft Ave.</option>
+            </select>
+        </div>
+
+        <div class="selection-container">
+            <p><b>Discount: </b></p>
+            <select id="discountType" onchange="DisplayPrice()">
+                <option value="none" selected>None</option>
+                <option value="student">Student (20% Off)</option>
+                <option value="senior">Senior (20% Off)</option>
+            </select>
+        </div>
+
+        <div class="total-container">
+            <h2>Total:</h2>
+            <input type="text" id="valueTotal" value="P0.00" readonly>
+        </div>
     </div>
+</div>
 
 
     <!-- HELP: YAO -->
